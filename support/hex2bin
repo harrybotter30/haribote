@@ -1,0 +1,38 @@
+#!/usr/bin/perl
+# inverse transform for ``hexdump -C''
+# usage: $0 [input...]
+use strict;
+use warnings;
+my $cur = 0;
+my $prev = '';
+my $skip = 0;
+while (<>) {
+    if (my ($offset, $data) = /^([\da-fA-F]{8})\s*((?:[\da-fA-F]{2}\s+)*)[^\s].*$/) {
+        $data =~ s/([\dA-Fa-f]{2})\s*/pack('C', hex($1))/eg;
+        &flush(hex($offset));
+        &assert_equals(hex($offset), $cur);
+        print $data;
+        $cur += length($data);
+        $prev = $data;
+    } elsif (my ($loffset) = /^([\da-fA-F]{8})$/) {
+        &flush(hex($loffset));
+        $prev = '';
+    } elsif (/^\*$/) {
+        $skip = 1;
+    }
+}
+sub flush {
+    my ($offset) = @_;
+    if ($skip) {
+        while ($cur < $offset) {
+            print $prev;
+            $cur += length($prev);
+        }
+        &assert_equals($offset, $cur);
+        $skip = 0;
+    }
+}
+sub assert_equals {
+    my ($expected, $actual) = @_;
+    die "expected($expected) != actual($actual)" if $expected != $actual;
+}
