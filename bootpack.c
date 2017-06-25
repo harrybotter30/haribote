@@ -4,7 +4,6 @@
 #include <stdio.h>
 
 unsigned int memtest(unsigned int start, unsigned int end);
-unsigned int memtest_sub(unsigned int start, unsigned int end);
 
 void HariMain(void)
 {
@@ -124,27 +123,5 @@ unsigned int memtest(unsigned int start, unsigned int end)
 		store_cr0(cr0);
 	}
 
-	return i;
-}
-
-unsigned int memtest_sub(unsigned int start, unsigned int end)
-{
-	unsigned int i, *p, old, pat0 = 0xaa55aa55, pat1 = 0x55aa55aa;
-	for (i = start; i <= end; i += 0x1000) {
-		p = (unsigned int *) (i + 0xffc);
-		old = *p;			/* ‚¢‚¶‚é‘O‚Ì’l‚ğŠo‚¦‚Ä‚¨‚­ */
-		*p = pat0;			/* ‚½‚ß‚µ‚É‘‚¢‚Ä‚İ‚é */
-		*p ^= 0xffffffff;	/* ‚»‚µ‚Ä‚»‚ê‚ğ”½“]‚µ‚Ä‚İ‚é */
-		if (*p != pat1) {	/* ”½“]Œ‹‰Ê‚É‚È‚Á‚½‚©H */
-not_memory:
-			*p = old;
-			break;
-		}
-		*p ^= 0xffffffff;	/* ‚à‚¤ˆê“x”½“]‚µ‚Ä‚İ‚é */
-		if (*p != pat0) {	/* Œ³‚É–ß‚Á‚½‚©H */
-			goto not_memory;
-		}
-		*p = old;			/* ‚¢‚¶‚Á‚½’l‚ğŒ³‚É–ß‚· */
-	}
 	return i;
 }
