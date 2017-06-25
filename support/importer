@@ -1,0 +1,25 @@
+#!/bin/sh -e
+# usage: root=<root of cdrom> $0
+: ${root?"variable root should be set"}
+for d in `seq -w 1 30`
+do
+    for p in `ls $root/projects/${d}_day`;
+    do
+        rm -rf `ls | fgrep -v -e license.txt -e README.md -e support`;
+        cp -pr $root/projects/${d}_day/$p/* .;
+        find . -type d -print0 | xargs -0 chmod u+w
+        case $d in
+        [02]1)
+            o=${d}st;;
+        [02]2)
+            o=${d}nd;;
+        [02]3)
+            o=${d}rd;;
+        *)
+            o=${d}th;;
+        esac;
+        git add .;
+        git commit -m "project $p ($o day)";
+        git tag "$d/$p";
+    done
+done
