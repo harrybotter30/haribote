@@ -1,4 +1,5 @@
 #!/bin/sh -e
+src=ipl
 base=helloos
-as -o ${base}.o ${base}.S
-ld -o ${base}.img -T ${base}.lds ${base}.o
+as -o ${src}.o ${src}.S -al >${src}.lst
+ld -o ${base}.img -T ${base}.lds ${src}.o
