@@ -57,7 +57,7 @@ Key to Flags:
 - objdump -d helloos.o を実行してみると先頭に 0x7c00 バイトの '\x00' が付与されている
 
 ```shell-session
-$ objdump -d -Maddr16,data16 helloos.o
+$ objdump -d -mi8086 helloos.o
 
 helloos.o:     file format elf32-i386
 
@@ -157,7 +157,7 @@ Disassembly of section .text:
 - ".org 0" だと上記の各ラベルは 0x0050, 0x005f, 0x0071, 0x0074 となってしまう
 
 ```shell-session
-$ objdump -d -Maddr16,data16 helloos.o
+$ objdump -d -mi8086 helloos.o
 
 helloos.o:     file format elf32-i386
 
