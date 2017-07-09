@@ -4,16 +4,16 @@ Next: [Chapter3](chapter3.md), Previous: [Chapter1](chapter1.md), Up: [Top](/REA
 
 # Chapter2
 
-## [helloos3](/doc/helloos3.md)
+## [helloos3](helloos3.md)
 
 ソース内のプログラム部分を理解しやすい形に書き換える。
 
-## [helloos4](/doc/helloos4.md)
+## [helloos4](helloos4.md)
 
 ソースからディスクイメージを構成する部分を削除し、ブートセクタのみ記述
 する。
 
-## [helloos5](/doc/helloos5.md)
+## [helloos5](helloos5.md)
 
 Makefile を使用して開発環境を管理する。
 
