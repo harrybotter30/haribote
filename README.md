@@ -54,6 +54,8 @@ Disk BIOS を使用してブートセクタ以外のセクタを読み込む。
 
 #### [harib00d](/doc/harib00d.md)
 
+10 シリンダ分読み込む。
+
 #### [harib00e](/doc/harib00e.md)
 
 #### [harib00f](/doc/harib00f.md)
