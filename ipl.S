@@ -5,7 +5,7 @@
 
 	jmp	entry
 	.byte	0x90
-	.ascii	"HELLOIPL"      /* ブートセクタの名前を自由に書いてよい（8バイト） */
+	.ascii	"HARIBOTE"      /* ブートセクタの名前を自由に書いてよい（8バイト） */
 	.short	512             /* 1セクタの大きさ（512にしなければいけない） */
 	.byte	1               /* クラスタの大きさ（1セクタにしなければいけない） */
 	.short	1               /* FATがどこから始まるか（普通は1セクタ目からにする） */
@@ -20,7 +20,7 @@
 	.long	2880            /* このドライブ大きさをもう一度書く */
 	.byte	0x00, 0x00, 0x29 /* よくわからないけどこの値にしておくといいらしい */
 	.long	0xffffffff      /* たぶんボリュームシリアル番号 */
-	.ascii	"HELLO-OS   "   /* ディスクの名前（11バイト） */
+	.ascii	"HARIBOTE   "   /* ディスクの名前（11バイト） */
 	.ascii	"FAT12   "      /* フォーマットの名前（8バイト） */
 	.space	18              /* とりあえず18バイトあけておく */
 
@@ -31,7 +31,30 @@ entry:
 	movw	%ax, %ss
 	movw	$0x7c00, %sp
 	movw	%ax, %ds
+
+/* ディスクを読む */
+
+	movw	$0x0820, %ax
 	movw	%ax, %es
+
+	movb	$0, %ch         /* シリンダ0 */
+	movb	$0, %dh         /* ヘッド0 */
+	movb	$2, %cl         /* セクタ2 */
+
+	movb	$0x02, %ah      /* AH=0x02 : ディスク読み込み */
+	movb	$1, %al         /* 1セクタ */
+	movw	$0, %bx
+	movb	$0x00, %dl      /* Aドライブ */
+	int	$0x13           /* ディスクBIOS呼び出し */
+	jc	error
+
+/* 読み終わったけどとりあえずやることないので寝る */
+
+fin:
+	hlt                     /* 何かあるまでCPUを停止させる */
+	jmp	fin             /* 無限ループ */
+
+error:
 	movw	$msg, %si
 putloop:
 	movb	(%si), %al
@@ -42,15 +65,12 @@ putloop:
 	movw	$15, %bx        /* カラーコード */
 	int	$0x10           /* ビデオBIOS呼び出し */
 	jmp	putloop
-fin:
-	hlt                     /* 何かあるまでCPUを停止させる */
-	jmp	fin             /* 無限ループ */
 
 /* メッセージ部分 */
 
 msg:
 	.byte	0x0a, 0x0a      /* 改行を2つ */
-	.ascii	"hello, world"
+	.ascii	"load error"
 	.byte	0x0a            /* 改行 */
 	.byte	0
 

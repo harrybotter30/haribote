@@ -5,10 +5,10 @@
 
 QEMU = qemu-system-i386
 ASFLAGS = -al
-LDFLAGS = -T helloos.lds
-QFLAGS = -drive format=raw,file=$(IMAGE) -m 64
+LDFLAGS = -T haribote.lds
+QFLAGS = -drive if=floppy,format=raw,file=$(IMAGE) -m 64
 FD = /dev/fd0
-IMAGE = helloos.img
+IMAGE = haribote.img
 SRCS = ipl.S
 PSRCS = $(SRCS:.S=.s)
 OBJS = $(SRCS:.S=.o)
