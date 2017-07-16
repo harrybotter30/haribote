@@ -40,7 +40,7 @@ entry:
 	movb	$0, %ch         /* シリンダ0 */
 	movb	$0, %dh         /* ヘッド0 */
 	movb	$2, %cl         /* セクタ2 */
-
+readloop:
 	movw	$0, %si         /* 失敗回数を数えるレジスタ */
 retry:
 	movb	$0x02, %ah      /* AH=0x02 : ディスク読み込み */
@@ -48,7 +48,7 @@ retry:
 	movw	$0, %bx
 	movb	$0x00, %dl      /* Aドライブ */
 	int	$0x13           /* ディスクBIOS呼び出し */
-	jnc	fin             /* エラーがおきなければfinへ */
+	jnc	next            /* エラーがおきなければnextへ */
 	addw	$1, %si         /* SIに1を足す */
 	cmpw	$5, %si         /* SIと5を比較 */
 	jae	error           /* SI >= 5 だったらerrorへ */
@@ -56,6 +56,13 @@ retry:
 	movb	$0x00, %dl      /* Aドライブ */
 	int	$0x13           /* ドライブのリセット */
 	jmp	retry
+next:
+	movw	%es, %ax        /* アドレスを0x200進める */
+	addw	$0x0020, %ax
+	movw	%ax, %es        /* ADD ES,0x020 という命令がないのでこうしている */
+	addb	$1, %cl         /* CLに1を足す */
+	cmpb	$18, %cl        /* CLと18を比較 */
+	jbe	readloop        /* CL <= 18 だったらreadloopへ */
 
 /* 読み終わったけどとりあえずやることないので寝る */
 

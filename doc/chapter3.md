@@ -14,6 +14,8 @@ Disk BIOS を使用してブートセクタ以外のセクタを読み込む。
 
 ## [harib00c](harib00c.md)
 
+18 セクタまで読み込む。
+
 ## [harib00d](harib00d.md)
 
 ## [harib00e](harib00e.md)
