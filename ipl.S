@@ -1,3 +1,4 @@
+	.set	CYLS, 10
 	.code16
 	.org	0               /* nasm と gas では org の意味が違う（このプログラムがどこに読み込まれるのか） */
 
@@ -63,6 +64,14 @@ next:
 	addb	$1, %cl         /* CLに1を足す */
 	cmpb	$18, %cl        /* CLと18を比較 */
 	jbe	readloop        /* CL <= 18 だったらreadloopへ */
+	movb	$1, %cl
+	addb	$1, %dh
+	cmpb	$2, %dh
+	jb	readloop        /* DH < 2 だったらreadloopへ */
+	movb	$0, %dh
+	addb	$1, %ch
+	cmpb	$CYLS, %ch
+	jb	readloop        /* CH < CYLS だったらreadloopへ */
 
 /* 読み終わったけどとりあえずやることないので寝る */
 
