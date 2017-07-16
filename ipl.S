@@ -41,12 +41,21 @@ entry:
 	movb	$0, %dh         /* ヘッド0 */
 	movb	$2, %cl         /* セクタ2 */
 
+	movw	$0, %si         /* 失敗回数を数えるレジスタ */
+retry:
 	movb	$0x02, %ah      /* AH=0x02 : ディスク読み込み */
 	movb	$1, %al         /* 1セクタ */
 	movw	$0, %bx
 	movb	$0x00, %dl      /* Aドライブ */
 	int	$0x13           /* ディスクBIOS呼び出し */
-	jc	error
+	jnc	fin             /* エラーがおきなければfinへ */
+	addw	$1, %si         /* SIに1を足す */
+	cmpw	$5, %si         /* SIと5を比較 */
+	jae	error           /* SI >= 5 だったらerrorへ */
+	movb	$0x00, %ah
+	movb	$0x00, %dl      /* Aドライブ */
+	int	$0x13           /* ドライブのリセット */
+	jmp	retry
 
 /* 読み終わったけどとりあえずやることないので寝る */
 
