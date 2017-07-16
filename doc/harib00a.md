@@ -34,7 +34,6 @@ cf | エラー時に設定
 %ah | リターンコード
 %al | 読み込みセクタ数
 
-
 ##### 参考
 
 - [INT 13h AH=02h: Read Sectors From Drive](https://en.wikipedia.org/wiki/INT_13H#INT_13h_AH.3D02h:_Read_Sectors_From_Drive)
