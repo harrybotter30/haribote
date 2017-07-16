@@ -46,6 +46,8 @@ Disk BIOS を使用してブートセクタ以外のセクタを読み込む。
 
 #### [harib00b](/doc/harib00b.md)
 
+ディスク読み込みでエラーが発生した時にリトライする。
+
 #### [harib00c](/doc/harib00c.md)
 
 #### [harib00d](/doc/harib00d.md)
