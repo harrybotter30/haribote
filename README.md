@@ -38,3 +38,29 @@ gas を使って helloos.img を生成する。
 
 Makefile を使用して開発環境を管理する。
 
+### [Chapter3](/doc/chapter3.md)
+
+#### [harib00a](/doc/harib00a.md)
+
+Disk BIOS を使用してブートセクタ以外のセクタを読み込む。
+
+#### [harib00b](/doc/harib00b.md)
+
+ディスク読み込みでエラーが発生した時にリトライする。
+
+#### [harib00c](/doc/harib00c.md)
+
+#### [harib00d](/doc/harib00d.md)
+
+#### [harib00e](/doc/harib00e.md)
+
+#### [harib00f](/doc/harib00f.md)
+
+#### [harib00g](/doc/harib00g.md)
+
+#### [harib00h](/doc/harib00h.md)
+
+#### [harib00i](/doc/harib00i.md)
+
+#### [harib00j](/doc/harib00j.md)
+
