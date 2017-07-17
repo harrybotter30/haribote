@@ -22,6 +22,8 @@ Disk BIOS を使用してブートセクタ以外のセクタを読み込む。
 
 ## [harib00e](harib00e.md)
 
+halt するだけの OS である haribote.sys を含むディスクイメージを作成する。
+
 ## [harib00f](harib00f.md)
 
 ## [harib00g](harib00g.md)
