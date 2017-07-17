@@ -1,4 +1,4 @@
-.PHONY: all clean distclean install realclean run asm default img ipl.bin
+.PHONY: all clean distclean install realclean run default img ipl.bin
 %.o: %.S
 	$(CC) -E $(CFLAGS) $(CPPFLAGS) $< -o $*.s
 	$(AS) $(ASFLAGS)  $*.s -o $@ >$*.lst
@@ -43,4 +43,4 @@ default: all
 
 img: $(IMAGE)
 
-asm ipl.bin: $(OBJS)
+ipl.bin: $(OBJS)
