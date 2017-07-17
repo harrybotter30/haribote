@@ -3,12 +3,12 @@ SECTIONS
 {
   . = 0x7c00;
   .text : {
-    *(.text);
+    ipl.o (.text);
     BYTE(0xf0);
     BYTE(0xff);
     BYTE(0xff);
-    BYTE(0);
-    BYTE(0);
+    BYTE(0xff);
+    BYTE(0x0f);
     BYTE(0);
     BYTE(0);
     BYTE(0);
@@ -16,11 +16,31 @@ SECTIONS
     BYTE(0xf0);
     BYTE(0xff);
     BYTE(0xff);
+    BYTE(0xff);
+    BYTE(0x0f);
     BYTE(0);
     BYTE(0);
     BYTE(0);
-    BYTE(0);
-    BYTE(0);
-    . += 1469432;
+    . += 4600;
+    BYTE(0x48);                 /* 'H' */
+    BYTE(0x41);                 /* 'A' */
+    BYTE(0x52);                 /* 'R' */
+    BYTE(0x49);                 /* 'I' */
+    BYTE(0x42);                 /* 'B' */
+    BYTE(0x4f);                 /* 'O' */
+    BYTE(0x54);                 /* 'T' */
+    BYTE(0x45);                 /* 'E' */
+    BYTE(0x53);                 /* 'S' */
+    BYTE(0x59);                 /* 'Y' */
+    BYTE(0x53);                 /* 'S' */
+    BYTE(0x20);                 /* Attr: ATTR_ARCHIVE */
+    . += 10;                    /* unused for FAT12 */
+    SHORT(0);                   /* WrtTime: 00:00:00 */
+    SHORT(0x2a21);              /* WrtDate: 0010 101/0 001/0 0001: 2001/01/01 */
+    SHORT(2);                   /* FstClusLO */
+    LONG(3);                    /* FileSize */
+    . = 0x4200;                 /* 2nd cluster offset */
+    haribote.o (.text);
+    . = 1474560;                /* 1440KB disk */
   } = 0x00000000
 }
