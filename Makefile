@@ -5,19 +5,23 @@
 
 QEMU = qemu-system-i386
 ASFLAGS = -al
-LDFLAGS = -T haribote.lds
+LDFLAGS =
 QFLAGS = -drive if=floppy,format=raw,file=$(IMAGE) -m 64
 FD = /dev/fd0
 IMAGE = haribote.img
-SRCS = ipl.S
+SYS = haribote.sys
+SRCS = ipl.S haribote.S
 PSRCS = $(SRCS:.S=.s)
 OBJS = $(SRCS:.S=.o)
 LISTS = $(SRCS:.S=.lst)
 
-all: $(IMAGE)
+all: $(IMAGE) $(SYS)
 
-$(IMAGE): $(OBJS)
-	$(LD) $(LDFLAGS) -o $(IMAGE) $(OBJS)
+$(IMAGE): $(OBJS) haribote.lds
+	$(LD) $(LDFLAGS) -T haribote.lds -o $(IMAGE) ipl.o
+
+$(SYS): $(OBJS) binary.lds
+	$(LD) $(LDFLAGS) -T binary.lds -o $(SYS) haribote.o
 
 $(OBJS): Makefile
 
@@ -31,7 +35,7 @@ clean:
 	$(RM) $(PSRCS) $(OBJS) $(LISTS) *~
 
 realclean distclean: clean
-	$(RM) $(IMAGE)
+	$(RM) $(IMAGE) $(SYS)
 
 # compatible targets
 
