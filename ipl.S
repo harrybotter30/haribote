@@ -73,11 +73,9 @@ next:
 	cmpb	$CYLS, %ch
 	jb	readloop        /* CH < CYLS だったらreadloopへ */
 
-/* 読み終わったけどとりあえずやることないので寝る */
+/* 読み終わったのでharibote.sysを実行だ！ */
 
-fin:
-	hlt                     /* 何かあるまでCPUを停止させる */
-	jmp	fin             /* 無限ループ */
+	jmp	0xc200
 
 error:
 	movw	$msg, %si
@@ -90,6 +88,9 @@ putloop:
 	movw	$15, %bx        /* カラーコード */
 	int	$0x10           /* ビデオBIOS呼び出し */
 	jmp	putloop
+fin:
+	hlt                     /* 何かあるまでCPUを停止させる */
+	jmp	fin             /* 無限ループ */
 
 /* メッセージ部分 */
 
