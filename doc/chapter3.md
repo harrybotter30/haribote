@@ -26,6 +26,8 @@ halt するだけの OS である haribote.sys を含むディスクイメージ
 
 ## [harib00f](harib00f.md)
 
+ブートセクタから haribote.sys を呼び出す。
+
 ## [harib00g](harib00g.md)
 
 ## [harib00h](harib00h.md)
