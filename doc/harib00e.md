@@ -1,4 +1,4 @@
-Next: [harib00f](harib00.md), Previous: [harib00d](harib00d.md), Up: [Chapter3](chapter3.md)
+Next: [harib00f](harib00f.md), Previous: [harib00d](harib00d.md), Up: [Chapter3](chapter3.md)
 
 ----
 
@@ -213,4 +213,4 @@ fin:
 
 ----
 
-Next: [harib00f](harib00.md), Previous: [harib00d](harib00d.md), Up: [Chapter3](chapter3.md)
+Next: [harib00f](harib00f.md), Previous: [harib00d](harib00d.md), Up: [Chapter3](chapter3.md)
