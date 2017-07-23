@@ -66,6 +66,8 @@ halt するだけの OS である haribote.sys を含むディスクイメージ
 
 #### [harib00g](/doc/harib00g.md)
 
+画面モードを切り替える。
+
 #### [harib00h](/doc/harib00h.md)
 
 #### [harib00i](/doc/harib00i.md)

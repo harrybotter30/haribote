@@ -75,6 +75,7 @@ next:
 
 /* 読み終わったのでharibote.sysを実行だ！ */
 
+	movb	%ch, (0x0ff0)   /* IPLがどこまで読んだのかをメモ */
 	jmp	0xc200
 
 error:

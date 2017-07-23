@@ -3,7 +3,7 @@ SECTIONS
 {
   . = 0x7c00;
   .text : {
-    ipl.o (.text);
+    ipl10.o (.text);
     BYTE(0xf0);
     BYTE(0xff);
     BYTE(0xff);
