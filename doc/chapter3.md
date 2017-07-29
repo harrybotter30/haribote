@@ -34,6 +34,8 @@ halt するだけの OS である haribote.sys を含むディスクイメージ
 
 ## [harib00h](harib00h.md)
 
+キーボードのシフト状態を取得する。
+
 ## [harib00i](harib00i.md)
 
 ## [harib00j](harib00j.md)

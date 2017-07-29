@@ -4,7 +4,7 @@ Next: [harib00d](harib00d.md), Previous: [harib00b](harib00b.md), Up: [Chapter3]
 
 # Chapter3
 
-## harib00b
+## harib00c
 
 ### 課題
 
