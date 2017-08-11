@@ -5,14 +5,16 @@
 
 QEMU = qemu-system-i386
 ASFLAGS = -al
+CFLAGS = -fno-pic
 LDFLAGS =
 QFLAGS = -drive if=floppy,format=raw,file=$(IMAGE) -m 64
 FD = /dev/fd0
 IMAGE = haribote.img
 SYS = haribote.sys
-SRCS = ipl10.S haribote.S
-PSRCS = $(SRCS:.S=.s)
-OBJS = $(SRCS:.S=.o)
+ASRCS = ipl10.S asmhead.S
+CSRCS = bootpack.c
+PSRCS = $(ASRCS:.S=.s)
+OBJS = $(ASRCS:.S=.o) $(CSRCS:.c=.o)
 LISTS = $(SRCS:.S=.lst)
 
 all: $(IMAGE) $(SYS)
@@ -20,8 +22,8 @@ all: $(IMAGE) $(SYS)
 $(IMAGE): $(OBJS) haribote.lds
 	$(LD) $(LDFLAGS) -T haribote.lds -o $(IMAGE) ipl10.o
 
-$(SYS): $(OBJS) binary.lds
-	$(LD) $(LDFLAGS) -T binary.lds -o $(SYS) haribote.o
+$(SYS): $(OBJS) asmhead.lds
+	$(LD) $(LDFLAGS) -T asmhead.lds -o $(SYS) haribote.o bootpack.o
 
 $(OBJS): Makefile
 
