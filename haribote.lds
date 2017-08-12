@@ -1,9 +1,10 @@
 OUTPUT_FORMAT(binary)
 SECTIONS
 {
-  . = 0x7c00;
-  .text : {
-    ipl10.o (.text);
+  .ipl : {
+    boot.o (.data);
+  }
+  .fat12 : {
     BYTE(0xf0);
     BYTE(0xff);
     BYTE(0xff);
@@ -38,9 +39,15 @@ SECTIONS
     SHORT(0);                   /* WrtTime: 00:00:00 */
     SHORT(0x2a21);              /* WrtDate: 0010 101/0 001/0 0001: 2001/01/01 */
     SHORT(2);                   /* FstClusLO */
-    LONG(3);                    /* FileSize */
-    . = 0x4200;                 /* 2nd cluster offset */
-    haribote.o (.text);
-    . = 1474560;                /* 1440KB disk */
+    LONG(SIZEOF(.file));        /* FileSize */
+  } = 0x00000000
+  . = 0x4200;                   /* 2nd cluster offset */
+  .file : {
+    file.o (.data);
+  } = 0x00000000
+  . = 0x4400;
+  .nofile : {
+    LONG(0);
+    . = 1474560-0x4400;         /* 1440KB disk */
   } = 0x00000000
 }
