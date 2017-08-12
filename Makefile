@@ -15,7 +15,7 @@ ASRCS = ipl10.S asmhead.S
 CSRCS = bootpack.c startup.c
 PSRCS = $(ASRCS:.S=.s)
 OBJS = $(ASRCS:.S=.o) $(CSRCS:.c=.o)
-LISTS = $(SRCS:.S=.lst)
+LISTS = $(ASRCS:.S=.lst)
 TMPS = boot.o file.o ipl10.bin bootpack.hrb asmhead.bin
 
 all: $(IMAGE)
