@@ -38,6 +38,8 @@ halt するだけの OS である haribote.sys を含むディスクイメージ
 
 ## [harib00i](harib00i.md)
 
+C 言語で OS を記述できるようにする。
+
 ## [harib00j](harib00j.md)
 
 ----
