@@ -86,16 +86,18 @@ OS を hlt できるようにする。
 
 メモリにデータを書き込む関数を追加する。
 
-#### harib00b
+#### [harib01b](/doc/harib01b.md)
 
-#### harib00c
+画面に縞模様を表示する。
 
-#### harib00d
+#### harib01c
 
-#### harib00e
+#### harib01d
 
-#### harib00f
+#### harib01e
 
-#### harib00g
+#### harib01f
 
-#### harib00h
+#### harib01g
+
+#### harib01h
