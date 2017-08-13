@@ -79,3 +79,23 @@ C 言語で OS を記述できるようにする。
 #### [harib00j](/doc/harib00j.md)
 
 OS を hlt できるようにする。
+
+### [Chapter4](/doc/chapter4.md)
+
+#### [harib01a](/doc/harib01a.md)
+
+メモリにデータを書き込む関数を追加する。
+
+#### harib00b
+
+#### harib00c
+
+#### harib00d
+
+#### harib00e
+
+#### harib00f
+
+#### harib00g
+
+#### harib00h
