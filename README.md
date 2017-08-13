@@ -78,3 +78,4 @@ C 言語で OS を記述できるようにする。
 
 #### [harib00j](/doc/harib00j.md)
 
+OS を hlt できるようにする。
