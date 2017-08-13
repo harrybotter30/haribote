@@ -12,7 +12,9 @@ Next: [Chapter5](chapter5.md), Previous: [Chapter3](chapter3.md), Up: [Top](/REA
 
 画面に縞模様を表示する。
 
-## harib01c
+## [harib01c](harib01c.md)
+
+write_mem8() の代わりにポインタを使う。
 
 ## harib01d
 
