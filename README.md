@@ -90,7 +90,9 @@ OS を hlt できるようにする。
 
 画面に縞模様を表示する。
 
-#### harib01c
+#### [harib01c](/doc/harib01c.md)
+
+write_mem8() の代わりにポインタを使う。
 
 #### harib01d
 
