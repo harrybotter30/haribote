@@ -94,7 +94,9 @@ OS を hlt できるようにする。
 
 write_mem8() の代わりにポインタを使う。
 
-#### harib01d
+#### [harib01d](/doc/harib01d.md)
+
+ポインタの表記を変える(1)。
 
 #### harib01e
 
