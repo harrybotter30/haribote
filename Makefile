@@ -29,7 +29,7 @@ $(IMAGE): ipl10.o $(SYS) ipl10.lds haribote.lds
 
 $(SYS): $(OBJS) asmhead.lds hrb.lds
 	$(LD) $(LDFLAGS) -T asmhead.lds -o asmhead.bin asmhead.o
-	$(LD) $(LDFLAGS) -T hrb.lds -o bootpack.hrb bootpack.o
+	$(LD) $(LDFLAGS) -T hrb.lds -o bootpack.hrb bootpack.o naskfunc.o
 	cat asmhead.bin bootpack.hrb >$@
 	$(RM) bootpack.hrb asmhead.bin
 
