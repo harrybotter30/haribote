@@ -1,4 +1,4 @@
-Next: [helloos6](helloos6.md), Previous: [helloos4](helloos4.md), Up: [Chapter2](chapter2.md)
+Next: [harib00a](harib00a.md), Previous: [helloos4](helloos4.md), Up: [Chapter2](chapter2.md)
 
 ----
 
@@ -45,4 +45,4 @@ make: Nothing to be done for 'all'.
 
 ----
 
-Next: [helloos6](helloos6.md), Previous: [helloos4](helloos4.md), Up: [Chapter2](chapter2.md)
+Next: [harib00a](harib00a.md), Previous: [helloos4](helloos4.md), Up: [Chapter2](chapter2.md)

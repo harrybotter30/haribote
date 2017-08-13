@@ -38,3 +38,44 @@ gas を使って helloos.img を生成する。
 
 Makefile を使用して開発環境を管理する。
 
+### [Chapter3](/doc/chapter3.md)
+
+#### [harib00a](/doc/harib00a.md)
+
+Disk BIOS を使用してブートセクタ以外のセクタを読み込む。
+
+#### [harib00b](/doc/harib00b.md)
+
+ディスク読み込みでエラーが発生した時にリトライする。
+
+#### [harib00c](/doc/harib00c.md)
+
+18 セクタまで読み込む。
+
+#### [harib00d](/doc/harib00d.md)
+
+10 シリンダ分読み込む。
+
+#### [harib00e](/doc/harib00e.md)
+
+halt するだけの OS である haribote.sys を含むディスクイメージを作成する。
+
+#### [harib00f](/doc/harib00f.md)
+
+ブートセクタから haribote.sys を呼び出す。
+
+#### [harib00g](/doc/harib00g.md)
+
+画面モードを切り替える。
+
+#### [harib00h](/doc/harib00h.md)
+
+キーボードのシフト状態を取得する。
+
+#### [harib00i](/doc/harib00i.md)
+
+C 言語で OS を記述できるようにする。
+
+#### [harib00j](/doc/harib00j.md)
+
+OS を hlt できるようにする。

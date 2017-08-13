@@ -1,3 +1,4 @@
+	.set	CYLS, 10
 	.code16
 	.org	0               /* nasm と gas では org の意味が違う（このプログラムがどこに読み込まれるのか） */
 
@@ -5,7 +6,7 @@
 
 	jmp	entry
 	.byte	0x90
-	.ascii	"HELLOIPL"      /* ブートセクタの名前を自由に書いてよい（8バイト） */
+	.ascii	"HARIBOTE"      /* ブートセクタの名前を自由に書いてよい（8バイト） */
 	.short	512             /* 1セクタの大きさ（512にしなければいけない） */
 	.byte	1               /* クラスタの大きさ（1セクタにしなければいけない） */
 	.short	1               /* FATがどこから始まるか（普通は1セクタ目からにする） */
@@ -20,7 +21,7 @@
 	.long	2880            /* このドライブ大きさをもう一度書く */
 	.byte	0x00, 0x00, 0x29 /* よくわからないけどこの値にしておくといいらしい */
 	.long	0xffffffff      /* たぶんボリュームシリアル番号 */
-	.ascii	"HELLO-OS   "   /* ディスクの名前（11バイト） */
+	.ascii	"HARIBOTEOS "   /* ディスクの名前（11バイト） */
 	.ascii	"FAT12   "      /* フォーマットの名前（8バイト） */
 	.space	18              /* とりあえず18バイトあけておく */
 
@@ -31,7 +32,53 @@ entry:
 	movw	%ax, %ss
 	movw	$0x7c00, %sp
 	movw	%ax, %ds
+
+/* ディスクを読む */
+
+	movw	$0x0820, %ax
 	movw	%ax, %es
+
+	movb	$0, %ch         /* シリンダ0 */
+	movb	$0, %dh         /* ヘッド0 */
+	movb	$2, %cl         /* セクタ2 */
+readloop:
+	movw	$0, %si         /* 失敗回数を数えるレジスタ */
+retry:
+	movb	$0x02, %ah      /* AH=0x02 : ディスク読み込み */
+	movb	$1, %al         /* 1セクタ */
+	movw	$0, %bx
+	movb	$0x00, %dl      /* Aドライブ */
+	int	$0x13           /* ディスクBIOS呼び出し */
+	jnc	next            /* エラーがおきなければnextへ */
+	addw	$1, %si         /* SIに1を足す */
+	cmpw	$5, %si         /* SIと5を比較 */
+	jae	error           /* SI >= 5 だったらerrorへ */
+	movb	$0x00, %ah
+	movb	$0x00, %dl      /* Aドライブ */
+	int	$0x13           /* ドライブのリセット */
+	jmp	retry
+next:
+	movw	%es, %ax        /* アドレスを0x200進める */
+	addw	$0x0020, %ax
+	movw	%ax, %es        /* ADD ES,0x020 という命令がないのでこうしている */
+	addb	$1, %cl         /* CLに1を足す */
+	cmpb	$18, %cl        /* CLと18を比較 */
+	jbe	readloop        /* CL <= 18 だったらreadloopへ */
+	movb	$1, %cl
+	addb	$1, %dh
+	cmpb	$2, %dh
+	jb	readloop        /* DH < 2 だったらreadloopへ */
+	movb	$0, %dh
+	addb	$1, %ch
+	cmpb	$CYLS, %ch
+	jb	readloop        /* CH < CYLS だったらreadloopへ */
+
+/* 読み終わったのでharibote.sysを実行だ！ */
+
+	movb	%ch, (0x0ff0)   /* IPLがどこまで読んだのかをメモ */
+	jmp	0xc200
+
+error:
 	movw	$msg, %si
 putloop:
 	movb	(%si), %al
@@ -50,7 +97,7 @@ fin:
 
 msg:
 	.byte	0x0a, 0x0a      /* 改行を2つ */
-	.ascii	"hello, world"
+	.ascii	"load error"
 	.byte	0x0a            /* 改行 */
 	.byte	0
 

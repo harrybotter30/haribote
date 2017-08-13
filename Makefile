@@ -1,23 +1,37 @@
-.PHONY: all clean distclean install realclean run asm default img ipl.bin
+.PHONY: all clean distclean install realclean run default img
 %.o: %.S
 	$(CC) -E $(CFLAGS) $(CPPFLAGS) $< -o $*.s
 	$(AS) $(ASFLAGS)  $*.s -o $@ >$*.lst
 
 QEMU = qemu-system-i386
 ASFLAGS = -al
-LDFLAGS = -T helloos.lds
-QFLAGS = -drive format=raw,file=$(IMAGE) -m 64
+CFLAGS = -fno-pic -Os -Wall
+LDFLAGS =
+QFLAGS = -drive if=floppy,format=raw,file=$(IMAGE) -m 64
 FD = /dev/fd0
-IMAGE = helloos.img
-SRCS = ipl.S
-PSRCS = $(SRCS:.S=.s)
-OBJS = $(SRCS:.S=.o)
-LISTS = $(SRCS:.S=.lst)
+IMAGE = haribote.img
+SYS = haribote.sys
+ASRCS = ipl10.S asmhead.S naskfunc.S
+CSRCS = bootpack.c startup.c
+PSRCS = $(ASRCS:.S=.s)
+OBJS = $(ASRCS:.S=.o) $(CSRCS:.c=.o)
+LISTS = $(ASRCS:.S=.lst)
+TMPS = boot.o file.o ipl10.bin bootpack.hrb asmhead.bin
 
 all: $(IMAGE)
 
-$(IMAGE): $(OBJS)
-	$(LD) $(LDFLAGS) -o $(IMAGE) $(OBJS)
+$(IMAGE): ipl10.o $(SYS) ipl10.lds haribote.lds
+	$(LD) $(LDFLAGS) -T ipl10.lds -o ipl10.bin ipl10.o
+	objcopy -Ibinary -Bi386 -Oelf32-i386 ipl10.bin boot.o
+	objcopy -Ibinary -Bi386 -Oelf32-i386 $(SYS) file.o
+	$(LD) $(LDFLAGS) -T haribote.lds -o $(IMAGE)
+	$(RM) boot.o file.o ipl10.bin
+
+$(SYS): $(OBJS) asmhead.lds hrb.lds
+	$(LD) $(LDFLAGS) -T asmhead.lds -o asmhead.bin asmhead.o
+	$(LD) $(LDFLAGS) -T hrb.lds -o bootpack.hrb bootpack.o naskfunc.o
+	cat asmhead.bin bootpack.hrb >$@
+	$(RM) bootpack.hrb asmhead.bin
 
 $(OBJS): Makefile
 
@@ -28,15 +42,13 @@ install: $(IMAGE)
 	dd $(IMAGE) $(FD)
 
 clean:
-	$(RM) $(PSRCS) $(OBJS) $(LISTS) *~
+	$(RM) $(PSRCS) $(OBJS) $(LISTS) $(TMPS) *~
 
 realclean distclean: clean
-	$(RM) $(IMAGE)
+	$(RM) $(IMAGE) $(SYS)
 
 # compatible targets
 
 default: all
 
 img: $(IMAGE)
-
-asm ipl.bin: $(OBJS)
