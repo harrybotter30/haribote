@@ -16,7 +16,7 @@ SECTIONS
 
     .text : {
         _btext = .;
-        bootpack.o(.text)
+        EXCLUDE_FILE(startup.o) *(.text)
         startup.o(.text)
         . = (. + 3) & ~ 3;
         _etext = .;

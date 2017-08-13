@@ -42,6 +42,8 @@ C 言語で OS を記述できるようにする。
 
 ## [harib00j](harib00j.md)
 
+OS を hlt できるようにする。
+
 ----
 
 Next: [Chapter4](chapter4.md), Previous: [Chapter2](chapter2.md), Up: [Top](/README.md)

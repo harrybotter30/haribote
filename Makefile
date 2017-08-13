@@ -11,11 +11,11 @@ QFLAGS = -drive if=floppy,format=raw,file=$(IMAGE) -m 64
 FD = /dev/fd0
 IMAGE = haribote.img
 SYS = haribote.sys
-ASRCS = ipl10.S asmhead.S
+ASRCS = ipl10.S asmhead.S naskfunc.S
 CSRCS = bootpack.c startup.c
 PSRCS = $(ASRCS:.S=.s)
 OBJS = $(ASRCS:.S=.o) $(CSRCS:.c=.o)
-LISTS = $(SRCS:.S=.lst)
+LISTS = $(ASRCS:.S=.lst)
 TMPS = boot.o file.o ipl10.bin bootpack.hrb asmhead.bin
 
 all: $(IMAGE)
@@ -29,7 +29,7 @@ $(IMAGE): ipl10.o $(SYS) ipl10.lds haribote.lds
 
 $(SYS): $(OBJS) asmhead.lds hrb.lds
 	$(LD) $(LDFLAGS) -T asmhead.lds -o asmhead.bin asmhead.o
-	$(LD) $(LDFLAGS) -T hrb.lds -o bootpack.hrb bootpack.o
+	$(LD) $(LDFLAGS) -T hrb.lds -o bootpack.hrb bootpack.o naskfunc.o
 	cat asmhead.bin bootpack.hrb >$@
 	$(RM) bootpack.hrb asmhead.bin
 
