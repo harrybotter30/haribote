@@ -16,7 +16,9 @@ Next: [Chapter5](chapter5.md), Previous: [Chapter3](chapter3.md), Up: [Top](/REA
 
 write_mem8() の代わりにポインタを使う。
 
-## harib01d
+## [harib01d](harib01d.md)
+
+ポインタの表記を変える(1)。
 
 ## harib01e
 
