@@ -11,7 +11,7 @@ QFLAGS = -drive if=floppy,format=raw,file=$(IMAGE) -m 64
 FD = /dev/fd0
 IMAGE = haribote.img
 SYS = haribote.sys
-ASRCS = ipl10.S asmhead.S
+ASRCS = ipl10.S asmhead.S naskfunc.S
 CSRCS = bootpack.c startup.c
 PSRCS = $(ASRCS:.S=.s)
 OBJS = $(ASRCS:.S=.o) $(CSRCS:.c=.o)
