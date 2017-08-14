@@ -79,3 +79,37 @@ C 言語で OS を記述できるようにする。
 #### [harib00j](/doc/harib00j.md)
 
 OS を hlt できるようにする。
+
+### [Chapter4](/doc/chapter4.md)
+
+#### [harib01a](/doc/harib01a.md)
+
+メモリにデータを書き込む関数を追加する。
+
+#### [harib01b](/doc/harib01b.md)
+
+画面に縞模様を表示する。
+
+#### [harib01c](/doc/harib01c.md)
+
+write_mem8() の代わりにポインタを使う。
+
+#### [harib01d](/doc/harib01d.md)
+
+ポインタの表記を変える(1)。
+
+#### [harib01e](/doc/harib01e.md)
+
+ポインタの表記を変える(2)。
+
+#### [harib01f](/doc/harib01f.md)
+
+カラーパレットを設定する。
+
+#### [harib01g](/doc/harib01g.md)
+
+正方形を描く。
+
+#### [harib01h](/doc/harib01h.md)
+
+空のデスクトップを描く。
