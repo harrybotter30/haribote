@@ -28,7 +28,9 @@ write_mem8() の代わりにポインタを使う。
 
 カラーパレットを設定する。
 
-## harib01g
+## [harib01g](harib01g.md)
+
+正方形を描く。
 
 ## harib01h
 
