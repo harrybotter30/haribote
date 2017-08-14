@@ -9,19 +9,19 @@ SECTIONS
     BYTE(0xff);
     BYTE(0xff);
     BYTE(0x03);
-    BYTE(0xf0);
+    BYTE(0x40);
+    BYTE(0x00);
     BYTE(0xff);
-    BYTE(0);
-    BYTE(0);
+    BYTE(0x0f);
     . += 4600;
     BYTE(0xf0);
     BYTE(0xff);
     BYTE(0xff);
     BYTE(0x03);
-    BYTE(0xf0);
+    BYTE(0x40);
+    BYTE(0x00);
     BYTE(0xff);
-    BYTE(0);
-    BYTE(0);
+    BYTE(0x0f);
     . += 4600;
     BYTE(0x48);                 /* 'H' */
     BYTE(0x41);                 /* 'A' */
@@ -45,9 +45,9 @@ SECTIONS
   .file : {
     file.o (.data);
   } = 0x00000000
-  . = 0x4600;
+  . = 0x4800;
   .nofile : {
     LONG(0);
-    . = 1474560-0x4600;         /* 1440KB disk */
+    . = 1474560-0x4800;         /* 1440KB disk */
   } = 0x00000000
 }
