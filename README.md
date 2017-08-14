@@ -113,3 +113,26 @@ write_mem8() の代わりにポインタを使う。
 #### [harib01h](/doc/harib01h.md)
 
 空のデスクトップを描く。
+
+### [Chapter5](/doc/chapter5.md)
+
+#### [harib02a](/doc/harib02a.md)
+
+画面情報を起動情報から受け取る。
+
+#### [harib02b](/doc/harib02b.md)
+
+#### [harib02c](/doc/harib02c.md)
+
+#### [harib02d](/doc/harib02d.md)
+
+#### [harib02e](/doc/harib02e.md)
+
+#### [harib02f](/doc/harib02f.md)
+
+#### [harib02g](/doc/harib02g.md)
+
+#### [harib02h](/doc/harib02h.md)
+
+#### [harib02i](/doc/harib02i.md)
+
