@@ -134,6 +134,8 @@ write_mem8() の代わりにポインタを使う。
 
 #### [harib02e](/doc/harib02e.md)
 
+多種類の文字を表示する。
+
 #### [harib02f](/doc/harib02f.md)
 
 #### [harib02g](/doc/harib02g.md)
