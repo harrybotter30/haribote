@@ -76,7 +76,7 @@ $ grep HariStartup bootpack.map
 ### 成果
 
 - [bootpack.c](/bootpack.c)
-    - デスクトップに文字 'A' を表示する。
+    - デスクトップに文字 'A' を表示する
 
 ----
 

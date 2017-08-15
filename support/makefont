@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+# make binary font from text source
+# usage: $0 [input...]
+use strict;
+use warnings;
+my %font = ();
+my $cp = -1;
+my $glyph = '';
+while (<>) {
+    s/\r+$//;
+    if (/^char\s+(0x[\da-f]+|0b[01]+|0[0-7]+)$/i) {
+        &flush;
+        $cp = oct($1);
+    }
+    elsif (/^char\s+(\d+)$/i) {
+        &flush;
+        $cp = int($1);
+    }
+    elsif (/^[ .*ox-]{8}$/i) {
+        s/[*o]/1/gi;
+        s/[^1]/0/g;
+        $glyph .= pack('B8', $_);
+    }
+}
+&flush;
+for (my $i = 0; $i < 256; $i++) {
+    print(defined $font{$i} ? $font{$i}: "\000" x 16);
+}
+
+sub flush {
+    if ($cp >= 0) {
+        warn(sprintf("glyph for %02x has a wrong height: %d", $cp, length($glyph))) unless length($glyph) == 16;
+        $font{$cp} = $glyph;
+        $cp = -1;
+        $glyph = '';
+    }
+}

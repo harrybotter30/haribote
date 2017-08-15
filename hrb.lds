@@ -24,7 +24,8 @@ SECTIONS
 
     .data 0x310000 : AT (ADDR(.text) + SIZEOF(.text)) ALIGN(4) {
         _bdata = .;
-        *(.data)
+        EXCLUDE_FILE(font.o) *(.data)
+        font.o (.data)
         *(.rodata*)
         *(.bss)
         . = (. + 3) & ~ 3;
