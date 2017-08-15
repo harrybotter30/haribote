@@ -26,6 +26,8 @@ Next: [Chapter6](chapter6.md), Previous: [Chapter4](chapter4.md), Up: [Top](/REA
 
 ## [harib02f](harib02f.md)
 
+文字列を表示する。
+
 ## [harib02g](harib02g.md)
 
 ## [harib02h](harib02h.md)
