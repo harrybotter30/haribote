@@ -126,6 +126,8 @@ write_mem8() の代わりにポインタを使う。
 
 #### [harib02c](/doc/harib02c.md)
 
+メンバ参照演算子を使用する。
+
 #### [harib02d](/doc/harib02d.md)
 
 #### [harib02e](/doc/harib02e.md)
