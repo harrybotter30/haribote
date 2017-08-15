@@ -138,6 +138,8 @@ write_mem8() の代わりにポインタを使う。
 
 #### [harib02f](/doc/harib02f.md)
 
+文字列を表示する。
+
 #### [harib02g](/doc/harib02g.md)
 
 #### [harib02h](/doc/harib02h.md)
