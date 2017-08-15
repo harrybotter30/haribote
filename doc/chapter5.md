@@ -10,6 +10,8 @@ Next: [Chapter6](chapter6.md), Previous: [Chapter4](chapter4.md), Up: [Top](/REA
 
 ## [harib02b](harib02b.md)
 
+起動情報を構造体を使用して参照する。
+
 ## [harib02c](harib02c.md)
 
 ## [harib02d](harib02d.md)
