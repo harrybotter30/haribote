@@ -122,6 +122,8 @@ write_mem8() の代わりにポインタを使う。
 
 #### [harib02b](/doc/harib02b.md)
 
+起動情報を構造体を使用して参照する。
+
 #### [harib02c](/doc/harib02c.md)
 
 #### [harib02d](/doc/harib02d.md)
