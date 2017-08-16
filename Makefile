@@ -12,7 +12,7 @@ FD = /dev/fd0
 IMAGE = haribote.img
 SYS = haribote.sys
 ASRCS = ipl10.S asmhead.S naskfunc.S
-CSRCS = bootpack.c startup.c
+CSRCS = bootpack.c startup.c tinylib.c
 PSRCS = $(ASRCS:.S=.s)
 OBJS = $(ASRCS:.S=.o) $(CSRCS:.c=.o)
 LISTS = $(ASRCS:.S=.lst)
@@ -31,7 +31,7 @@ $(SYS): $(OBJS) hankaku.txt asmhead.lds hrb.lds support/makefont
 	$(LD) $(LDFLAGS) -T asmhead.lds -o asmhead.bin asmhead.o
 	support/makefont hankaku.txt >font.bin
 	objcopy -Ibinary -Bi386 -Oelf32-i386 font.bin font.o
-	$(LD) $(LDFLAGS) -T hrb.lds -o bootpack.hrb bootpack.o naskfunc.o
+	$(LD) $(LDFLAGS) -T hrb.lds -o bootpack.hrb bootpack.o naskfunc.o tinylib.o
 	cat asmhead.bin bootpack.hrb >$@
 	$(RM) font.o font.bin bootpack.hrb asmhead.bin
 

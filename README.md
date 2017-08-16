@@ -142,6 +142,8 @@ write_mem8() の代わりにポインタを使う。
 
 #### [harib02g](/doc/harib02g.md)
 
+sprintf を使う。
+
 #### [harib02h](/doc/harib02h.md)
 
 #### [harib02i](/doc/harib02i.md)
