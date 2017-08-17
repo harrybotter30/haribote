@@ -331,6 +331,8 @@ GDTR（および IDTR）は
 
 - [bootpack.c](/bootpack.c)
     - セグメントディスクリプタテーブルと割り込みディスクリプタテーブルを作成し設定する
+- [naskfunc.S](/naskfunc.S)
+    - LGDT および LIDT を呼び出す load_gdtr, load_idtr 追加
 
 ----
 
