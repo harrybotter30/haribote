@@ -113,3 +113,41 @@ write_mem8() の代わりにポインタを使う。
 #### [harib01h](/doc/harib01h.md)
 
 空のデスクトップを描く。
+
+### [Chapter5](/doc/chapter5.md)
+
+#### [harib02a](/doc/harib02a.md)
+
+画面情報を起動情報から受け取る。
+
+#### [harib02b](/doc/harib02b.md)
+
+起動情報を構造体を使用して参照する。
+
+#### [harib02c](/doc/harib02c.md)
+
+メンバ参照演算子を使用する。
+
+#### [harib02d](/doc/harib02d.md)
+
+文字を表示する。
+
+#### [harib02e](/doc/harib02e.md)
+
+多種類の文字を表示する。
+
+#### [harib02f](/doc/harib02f.md)
+
+文字列を表示する。
+
+#### [harib02g](/doc/harib02g.md)
+
+sprintf を使う。
+
+#### [harib02h](/doc/harib02h.md)
+
+マウスカーソルを描画する。
+
+#### [harib02i](/doc/harib02i.md)
+
+GDT と IDT を設定する。

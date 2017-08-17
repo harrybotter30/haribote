@@ -29,6 +29,10 @@
 	.type	io_load_eflags, @function
 	.globl	io_store_eflags
 	.type	io_store_eflags, @function
+	.globl	load_gdtr
+	.type	load_gdtr, @function
+	.globl	load_idtr
+	.type	load_idtr, @function
 
 /* 以下は実際の関数 */
 
@@ -93,4 +97,16 @@ io_store_eflags:                /* void io_store_eflags(int eflags); */
 	movl	4(%esp), %eax
 	pushl	%eax
 	popfl                   /* POP EFLAGS という意味 */
+	ret
+
+load_gdtr:                      /* void load_gdtr(int limit, int addr); */
+	movw	4(%esp), %ax    /* limit */
+	movw	%ax, 6(%esp)
+	lgdt	6(%esp)
+	ret
+
+load_idtr:                      /* void load_idtr(int limit, int addr); */
+	movw	4(%esp), %ax    /* limit */
+	movw	%ax, 6(%esp)
+	lidt	6(%esp)
 	ret
