@@ -146,5 +146,7 @@ sprintf を使う。
 
 #### [harib02h](/doc/harib02h.md)
 
+マウスカーソルを描画する。
+
 #### [harib02i](/doc/harib02i.md)
 

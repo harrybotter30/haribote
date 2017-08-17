@@ -34,6 +34,8 @@ sprintf を使う。
 
 ## [harib02h](harib02h.md)
 
+マウスカーソルを描画する。
+
 ## [harib02i](harib02i.md)
 
 ----
