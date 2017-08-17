@@ -150,3 +150,4 @@ sprintf を使う。
 
 #### [harib02i](/doc/harib02i.md)
 
+GDT と IDT を設定する。

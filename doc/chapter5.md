@@ -38,6 +38,8 @@ sprintf を使う。
 
 ## [harib02i](harib02i.md)
 
+GDT と IDT を設定する。
+
 ----
 
 Next: [Chapter6](chapter6.md), Previous: [Chapter4](chapter4.md), Up: [Top](/README.md)
