@@ -4,6 +4,8 @@ Next: [Chapter2](chapter2.md), Previous: [Top](/README.md), Up: [Top](/README.md
 
 # Chapter1
 
+PC の仕組みからアセンブラ入門まで
+
 ## [helloos0](helloos0.md)
 
 バイナリエディタで、起動後特定のメッセージを表示するだけのフロッピーディ

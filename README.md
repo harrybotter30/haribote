@@ -2,152 +2,143 @@
 
 川合秀実著「[30日でできる！　OS自作入門](https://book.mynavi.jp/ec/products/detail/id=22078)」について学習するリポジトリ。
 
+やりたいこと
+
 - Linux 上で実施する
 - 独自ツール群ではなく GNU toolchain を利用する
 - GitHub の練習も行う
 
+やらないこと
+
+- オリジナルからの改変（環境を原因とする不可避の相違は除く）
+- すでに知っていることの振り返り
+
 ## 目次
+
+### Chapter0
+
+開発を始める前に
 
 ### [Chapter1](/doc/chapter1.md)
 
-#### [helloos0](/doc/helloos0.md)
-
-バイナリエディタで、起動後特定のメッセージを表示するだけのフロッピーディ
-スクイメージを作る。
-
-#### [helloos1](/doc/helloos1.md)
-
-gas を使って helloos.img を生成する。
-
-#### [helloos2](/doc/helloos2.md)
-
-ソース内のデータ部分を理解しやすい形に書き換える。
+PC の仕組みからアセンブラ入門まで
 
 ### [Chapter2](/doc/chapter2.md)
 
-#### [helloos3](/doc/helloos3.md)
-
-ソース内のプログラム部分を理解しやすい形に書き換える。
-
-#### [helloos4](/doc/helloos4.md)
-
-ソースからディスクイメージを構成する部分を削除し、ブートセクタのみ記述
-する。
-
-#### [helloos5](/doc/helloos5.md)
-
-Makefile を使用して開発環境を管理する。
+アセンブラ学習と Makefile 入門
 
 ### [Chapter3](/doc/chapter3.md)
 
-#### [harib00a](/doc/harib00a.md)
-
-Disk BIOS を使用してブートセクタ以外のセクタを読み込む。
-
-#### [harib00b](/doc/harib00b.md)
-
-ディスク読み込みでエラーが発生した時にリトライする。
-
-#### [harib00c](/doc/harib00c.md)
-
-18 セクタまで読み込む。
-
-#### [harib00d](/doc/harib00d.md)
-
-10 シリンダ分読み込む。
-
-#### [harib00e](/doc/harib00e.md)
-
-halt するだけの OS である haribote.sys を含むディスクイメージを作成する。
-
-#### [harib00f](/doc/harib00f.md)
-
-ブートセクタから haribote.sys を呼び出す。
-
-#### [harib00g](/doc/harib00g.md)
-
-画面モードを切り替える。
-
-#### [harib00h](/doc/harib00h.md)
-
-キーボードのシフト状態を取得する。
-
-#### [harib00i](/doc/harib00i.md)
-
-C 言語で OS を記述できるようにする。
-
-#### [harib00j](/doc/harib00j.md)
-
-OS を hlt できるようにする。
+32 ビットモード突入と C 言語導入
 
 ### [Chapter4](/doc/chapter4.md)
 
-#### [harib01a](/doc/harib01a.md)
-
-メモリにデータを書き込む関数を追加する。
-
-#### [harib01b](/doc/harib01b.md)
-
-画面に縞模様を表示する。
-
-#### [harib01c](/doc/harib01c.md)
-
-write_mem8() の代わりにポインタを使う。
-
-#### [harib01d](/doc/harib01d.md)
-
-ポインタの表記を変える(1)。
-
-#### [harib01e](/doc/harib01e.md)
-
-ポインタの表記を変える(2)。
-
-#### [harib01f](/doc/harib01f.md)
-
-カラーパレットを設定する。
-
-#### [harib01g](/doc/harib01g.md)
-
-正方形を描く。
-
-#### [harib01h](/doc/harib01h.md)
-
-空のデスクトップを描く。
+C 言語と画面表示の練習
 
 ### [Chapter5](/doc/chapter5.md)
 
-#### [harib02a](/doc/harib02a.md)
+構造体と文字表示と GDT/IDT 初期化
 
-画面情報を起動情報から受け取る。
+### [Chapter6](/doc/chapter6.md)
 
-#### [harib02b](/doc/harib02b.md)
+分割コンパイルと割り込み処理
 
-起動情報を構造体を使用して参照する。
+### [Chapter7](/doc/chapter7.md)
 
-#### [harib02c](/doc/harib02c.md)
+FIFO とマウス制御
 
-メンバ参照演算子を使用する。
+### [Chapter8](/doc/chapter8.md)
 
-#### [harib02d](/doc/harib02d.md)
+マウス制御と 32 ビットモード切り替え
 
-文字を表示する。
+### [Chapter9](/doc/chapter9.md)
 
-#### [harib02e](/doc/harib02e.md)
+メモリ管理
 
-多種類の文字を表示する。
+### [Chapter10](/doc/chapter10.md)
 
-#### [harib02f](/doc/harib02f.md)
+重ね合わせ処理
 
-文字列を表示する。
+### [Chapter11](/doc/chapter11.md)
 
-#### [harib02g](/doc/harib02g.md)
+ついにウィンドウ
 
-sprintf を使う。
+### [Chapter12](/doc/chapter12.md)
 
-#### [harib02h](/doc/harib02h.md)
+タイマ-1
 
-マウスカーソルを描画する。
+### [Chapter13](/doc/chapter13.md)
 
-#### [harib02i](/doc/harib02i.md)
+タイマ-2
 
-GDT と IDT を設定する。
+### [Chapter14](/doc/chapter14.md)
+
+高解像度・キー入力
+
+### [Chapter15](/doc/chapter15.md)
+
+マルチタスク-1
+
+### [Chapter16](/doc/chapter16.md)
+
+マルチタスク-2
+
+### [Chapter17](/doc/chapter17.md)
+
+コンソール
+
+### [Chapter18](/doc/chapter18.md)
+
+dir コマンド
+
+### [Chapter19](/doc/chapter19.md)
+
+アプリケーション
+
+### [Chapter20](/doc/chapter20.md)
+
+API
+
+### [Chapter21](/doc/chapter21.md)
+
+OS を守ろう
+
+### [Chapter22](/doc/chapter22.md)
+
+C 言語でアプリケーションを作ろう
+
+### [Chapter23](/doc/chapter23.md)
+
+グラフィックいろいろ
+
+### [Chapter24](/doc/chapter24.md)
+
+ウィンドウ操作
+
+### [Chapter25](/doc/chapter25.md)
+
+コンソールを増やそう
+
+### [Chapter26](/doc/chapter26.md)
+
+ウィンドウ移動の高速化
+
+### [Chapter27](/doc/chapter27.md)
+
+LDT とライブラリ
+
+### [Chapter28](/doc/chapter28.md)
+
+ファイルと日本語表示
+
+### [Chapter29](/doc/chapter29.md)
+
+圧縮と簡単なアプリケーション
+
+### [Chapter30](/doc/chapter30.md)
+
+高度なアプリケーション
+
+### Chapter31
+
+開発を終えた後で
