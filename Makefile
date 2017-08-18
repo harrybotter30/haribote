@@ -20,10 +20,11 @@ TMPS = boot.o file.o ipl10.bin font.o font.bin bootpack.hrb asmhead.bin
 
 all: $(IMAGE)
 
-$(IMAGE): ipl10.o $(SYS) ipl10.lds haribote.lds
+$(IMAGE): ipl10.o $(SYS) ipl10.lds
 	$(LD) $(LDFLAGS) -T ipl10.lds -o ipl10.bin ipl10.o
 	objcopy -Ibinary -Bi386 -Oelf32-i386 ipl10.bin boot.o
 	objcopy -Ibinary -Bi386 -Oelf32-i386 $(SYS) file.o
+	support/makelds >haribote.lds
 	$(LD) $(LDFLAGS) -T haribote.lds -o $(IMAGE)
 	$(RM) boot.o file.o ipl10.bin
 
