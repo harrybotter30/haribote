@@ -1,0 +1,85 @@
+#!/usr/bin/perl
+# make haribote.lds from haribote.sys
+# usage: $0 >haribote.lds
+use strict;
+use warnings;
+
+my $CLUSTERSIZE = 512;
+my $size = -s 'haribote.sys';
+my $clusters = int(($size + $CLUSTERSIZE - 1) / $CLUSTERSIZE);
+my $fat = &fat12($clusters);
+
+print <<"TEMPLATE";
+OUTPUT_FORMAT(binary)
+SECTIONS
+{
+  .mbr : {                      /* master boot record */
+    boot.o (.data);
+  }
+  . = 0x200;
+  .fat1st : {                   /* 1st FAT */
+${fat}
+  } = 0x00000000
+  . = 0x1400;
+  .fat2nd : {                   /* 2nd FAT */
+${fat}
+  } = 0x00000000
+  . = 0x2600;
+  .root : {                     /* root directory entry */
+    BYTE(0x48);                 /* 'H' */
+    BYTE(0x41);                 /* 'A' */
+    BYTE(0x52);                 /* 'R' */
+    BYTE(0x49);                 /* 'I' */
+    BYTE(0x42);                 /* 'B' */
+    BYTE(0x4f);                 /* 'O' */
+    BYTE(0x54);                 /* 'T' */
+    BYTE(0x45);                 /* 'E' */
+    BYTE(0x53);                 /* 'S' */
+    BYTE(0x59);                 /* 'Y' */
+    BYTE(0x53);                 /* 'S' */
+    BYTE(0x20);                 /* Attr: ATTR_ARCHIVE */
+    . += 10;                    /* unused for FAT12 */
+    SHORT(0);                   /* WrtTime: 00:00:00 */
+    SHORT(0x2a21);              /* WrtDate: 0010 101/0 001/0 0001: 2001/01/01 */
+    SHORT(2);                   /* FstClusLO */
+    LONG(SIZEOF(.file));        /* FileSize */
+  } = 0x00000000
+  . = 0x4200;
+  .file : {                     /* user data */
+    file.o (.data);
+  } = 0x00000000
+  . = 0x00168000-1;             /* 1440KB disk */
+  .lastbyte : {
+    BYTE(0);
+  } = 0x00000000
+}
+TEMPLATE
+
+sub fat12 {
+    my $clusters = shift;
+    my @fat = ('ff0', 'fff');
+    for (my $i = 1; $i < $clusters; $i++) {
+        push @fat, sprintf '%03x', $i + 2;
+    }
+    push @fat, 'fff';
+    my $nibble = undef;
+    my @bytes = ();
+    for my $e (@fat) {
+        if (defined $nibble) {
+            push @bytes, reverse(($e . $nibble) =~ /.{2}/g);
+            $nibble = undef;
+        }
+        else {
+            push @bytes, substr $e, 1, 2;
+            $nibble = substr $e, 0, 1;
+        }
+    }
+    push @bytes, '0' . $nibble if $nibble;
+    push @bytes, ('00') x ((4 - (@bytes & 3)) & 3);
+    my $output = '';
+    while (my @sub = splice(@bytes, 0, 4)) {
+        $output .= '    ' . join(' ', map {'BYTE(0x' . $_ . ');'} @sub) . "\n";
+    }
+    chomp $output;
+    $output;
+}
