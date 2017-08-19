@@ -16,6 +16,8 @@ Makefile を整理する。
 
 ## [harib03c](harib03c.md)
 
+ヘッダファイルを導入する。
+
 ## [harib03d](harib03d.md)
 
 ## [harib03e](harib03e.md)

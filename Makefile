@@ -36,7 +36,7 @@ $(SYS): $(OBJS) hankaku.txt asmhead.lds hrb.lds support/makefont
 	cat asmhead.bin bootpack.hrb >$@
 	$(RM) font.o font.bin bootpack.hrb asmhead.bin
 
-$(OBJS): Makefile
+$(OBJS): bootpack.h Makefile
 
 run: $(IMAGE)
 	$(QEMU) $(QFLAGS)
