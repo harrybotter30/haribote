@@ -20,6 +20,8 @@ Makefile を整理する。
 
 ## [harib03d](harib03d.md)
 
+PIC を初期化する。
+
 ## [harib03e](harib03e.md)
 
 ----
