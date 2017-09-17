@@ -4,6 +4,8 @@ Next: [Chapter6](chapter6.md), Previous: [Chapter4](chapter4.md), Up: [Top](/REA
 
 # Chapter5
 
+構造体と文字表示と GDT/IDT 初期化
+
 ## [harib02a](harib02a.md)
 
 画面情報を起動情報から受け取る。

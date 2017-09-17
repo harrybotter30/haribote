@@ -4,6 +4,8 @@ Next: [Chapter4](chapter4.md), Previous: [Chapter2](chapter2.md), Up: [Top](/REA
 
 # Chapter3
 
+32 ビットモード突入と C 言語導入
+
 ## [harib00a](harib00a.md)
 
 Disk BIOS を使用してブートセクタ以外のセクタを読み込む。

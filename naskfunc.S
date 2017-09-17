@@ -33,6 +33,12 @@
 	.type	load_gdtr, @function
 	.globl	load_idtr
 	.type	load_idtr, @function
+	.globl	asm_inthandler21
+	.type	asm_inthandler21, @function
+	.globl	asm_inthandler27
+	.type	asm_inthandler27, @function
+	.globl	asm_inthandler2c
+	.type	asm_inthandler2c, @function
 
 /* 以下は実際の関数 */
 
@@ -110,3 +116,51 @@ load_idtr:                      /* void load_idtr(int limit, int addr); */
 	movw	%ax, 6(%esp)
 	lidt	6(%esp)
 	ret
+
+asm_inthandler21:
+	push	%es
+	push	%ds
+	pushal
+	mov	%esp, %eax
+	push	%eax
+	mov	%ss, %ax
+	mov	%ax, %ds
+	mov	%ax, %es
+	call	inthandler21
+	pop	%eax
+	popal
+	pop	%ds
+	pop	%es
+	iretl
+
+asm_inthandler27:
+	push	%es
+	push	%ds
+	pushal
+	mov	%esp, %eax
+	push	%eax
+	mov	%ss, %ax
+	mov	%ax, %ds
+	mov	%ax, %es
+	call	inthandler27
+	pop	%eax
+	popal
+	pop	%ds
+	pop	%es
+	iretl
+
+asm_inthandler2c:
+	push	%es
+	push	%ds
+	pushal
+	mov	%esp, %eax
+	push	%eax
+	mov	%ss, %ax
+	mov	%ax, %ds
+	mov	%ax, %es
+	call	inthandler2c
+	pop	%eax
+	popal
+	pop	%ds
+	pop	%es
+	iretl

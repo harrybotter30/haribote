@@ -4,6 +4,8 @@ Next: [Chapter5](chapter5.md), Previous: [Chapter3](chapter3.md), Up: [Top](/REA
 
 # Chapter4
 
+C 言語と画面表示の練習
+
 ## [harib01a](harib01a.md)
 
 メモリにデータを書き込む関数を追加する。
