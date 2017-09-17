@@ -24,6 +24,8 @@ PIC を初期化する。
 
 ## [harib03e](harib03e.md)
 
+割り込みハンドラを登録する。
+
 ----
 
 Next: [Chapter7](chapter7.md), Previous: [Chapter5](chapter5.md), Up: [Top](/README.md)
