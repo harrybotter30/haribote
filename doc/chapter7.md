@@ -14,6 +14,10 @@ FIFO とマウス制御
 
 割り込みハンドラの中では画面表示しない。
 
+## [harib04c](harib04c.md)
+
+FIFO バッファを使う。
+
 ----
 
 Next: [Chapter8](chapter8.md), Previous: [Chapter6](chapter6.md), Up: [Top](/README.md)
