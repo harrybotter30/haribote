@@ -18,6 +18,10 @@ FIFO とマウス制御
 
 FIFO バッファを使う。
 
+## [harib04d](harib04d.md)
+
+循環バッファで FIFO を実現する。
+
 ----
 
 Next: [Chapter8](chapter8.md), Previous: [Chapter6](chapter6.md), Up: [Top](/README.md)
