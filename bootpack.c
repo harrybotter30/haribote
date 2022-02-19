@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 extern struct FIFO8 keyfifo;
+void enable_mouse(void);
 void init_keyboard(void);
 
 void HariMain(void)
@@ -30,6 +31,8 @@ void HariMain(void)
 	putblock8_8(binfo->vram, binfo->scrnx, 16, 16, mx, my, mcursor, 16);
 	sprintf(s, "(%d, %d)", mx, my);
 	putfonts8_asc(binfo->vram, binfo->scrnx, 0, 0, COL8_FFFFFF, s);
+
+	enable_mouse();
 
 	for (;;) {
 		io_cli();
@@ -71,4 +74,17 @@ void init_keyboard(void)
 	wait_KBC_sendready();
 	io_out8(PORT_KEYDAT, KBC_MODE);
 	return;
+}
+
+#define KEYCMD_SENDTO_MOUSE	0xd4
+#define MOUSECMD_ENABLE		0xf4
+
+void enable_mouse(void)
+{
+	/* マウス有効 */
+	wait_KBC_sendready();
+	io_out8(PORT_KEYCMD, KEYCMD_SENDTO_MOUSE);
+	wait_KBC_sendready();
+	io_out8(PORT_KEYDAT, MOUSECMD_ENABLE);
+	return;	/* うまくいくとACK(0xfa)が送信されてくる */
 }
