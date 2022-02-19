@@ -15,7 +15,6 @@ void HariMain(void)
 	init_gdtidt();
 	init_pic();
 	io_sti(); /* IDT/PICの初期化が終わったのでCPUの割り込み禁止を解除 */
-
 	fifo8_init(&keyfifo, 32, keybuf);
 	io_out8(PIC0_IMR, 0xf9); /* PIC1とキーボードを許可(11111001) */
 	io_out8(PIC1_IMR, 0xef); /* マウスを許可(11101111) */
@@ -41,4 +40,18 @@ void HariMain(void)
 			putfonts8_asc(binfo->vram, binfo->scrnx, 0, 16, COL8_FFFFFF, s);
 		}
 	}
+}
+
+#define PORT_KEYSTA		0x0064
+#define KEYSTA_SEND_NOTREADY	0x02
+
+void wait_KBC_sendready(void)
+{
+	/* キーボードコントローラがデータ送信可能になるのを待つ */
+	for (;;) {
+		if ((io_in8(PORT_KEYSTA) & KEYSTA_SEND_NOTREADY) == 0) {
+			break;
+		}
+	}
+	return;
 }
