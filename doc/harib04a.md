@@ -58,7 +58,7 @@ R  | SL | EOI | 意味 | グループ
 
 #### 参考
 
-- [The PS/2 Keyboard Interface](http://www.computer-engineering.org/ps2keyboard/)
+- [The PS/2 Keyboard Interface](https://web.archive.org/web/20180217074705/http://www.computer-engineering.org/ps2keyboard)
 - [8259A Programmable Interrupt Controller](https://pdos.csail.mit.edu/6.828/2014/readings/hardware/8259A.pdf)
 - [パソコンのレガシィI/O活用大全](http://www.cqpub.co.jp/column/books/2001a/34331PC_Legacy/default.htm)
 

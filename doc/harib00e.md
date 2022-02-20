@@ -193,7 +193,7 @@ fin:
 
 - [FAT32 File System Specification](http://msdn.microsoft.com/en-us/library/windows/hardware/gg463080.aspx)
 - [FAT - OSDev Wiki](http://wiki.osdev.org/FAT)
-- [０から作るOS開発　ブートローダその１１　FAT12ファイルシステムからファイルを読み込む](http://softwaretechnique.jp/OS_Development/bootloader11.html)
+- [０から作るOS開発　ブートローダその１１　FAT12ファイルシステムからファイルを読み込む](https://web.archive.org/web/20201107214109/http://softwaretechnique.jp/OS_Development/bootloader11.html)
 
 ### 成果
 

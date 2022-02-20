@@ -19,7 +19,7 @@ nask | gas
 DB | .byte
 RESB _length_ | .lcomm _symbol_ _length_
 
-[Linux のアセンブラー: GAS と NASM を比較する](https://www.ibm.com/developerworks/jp/linux/library/l-gas-nasm.html)
+[Linux のアセンブラー: GAS と NASM を比較する](https://web.archive.org/web/20200811072707/https://www.ibm.com/developerworks/jp/linux/library/l-gas-nasm.html)
 
 #### リスティングオプション
 

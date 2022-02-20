@@ -157,7 +157,7 @@ ICW1 で IC4 == 1 にした場合のみこの設定を行い、IC4 == 0 にし�
 - [8259A Programmable Interrupt Controller](https://pdos.csail.mit.edu/6.828/2014/readings/hardware/8259A.pdf)
 - [8259 PIC - OSDev Wiki](http://wiki.osdev.org/8259_PIC)
 - [パソコンのレガシィI/O活用大全](http://www.cqpub.co.jp/column/books/2001a/34331PC_Legacy/default.htm)
-- [０から作るOS開発　割り込みその２　PICとIRQ](http://softwaretechnique.jp/OS_Development/kernel_development03.html)
+- [０から作るOS開発　割り込みその２　PICとIRQ](https://web.archive.org/web/20200201060558/http://softwaretechnique.jp/OS_Development/kernel_development03.html)
 
 ### 成果
 
