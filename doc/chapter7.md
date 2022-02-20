@@ -26,6 +26,10 @@ FIFO バッファを使う。
 
 FIFO を一般化する。
 
+## [harib04f](harib04f.md)
+
+マウスを有効化する。
+
 ----
 
 Next: [Chapter8](chapter8.md), Previous: [Chapter6](chapter6.md), Up: [Top](/README.md)
