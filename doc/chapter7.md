@@ -30,6 +30,10 @@ FIFO を一般化する。
 
 マウスを有効化する。
 
+## [harib04g](harib04g.md)
+
+マウスからデータを受信する。
+
 ----
 
 Next: [Chapter8](chapter8.md), Previous: [Chapter6](chapter6.md), Up: [Top](/README.md)
