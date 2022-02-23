@@ -14,7 +14,7 @@ Next: [harib00c](harib00c.md), Previous: [harib00a](harib00a.md), Up: [Chapter3]
 
 - ドライブリセット機能は AH=00h
 
-#### INT 13h AH=00h: Reset Disk Drive
+#### INT 13h AH=00h: Reset Disk System
 
 - パラメータ
 
@@ -31,7 +31,7 @@ cf | エラー時に設定
 
 ##### 参考
 
-- [INT 13h AH=00h: Reset Disk Drive](https://en.wikipedia.org/wiki/INT_13H#INT_13h_AH.3D00h:_Reset_Disk_Drive)
+- [INT 13h AH=00h: Reset Disk System](https://en.wikipedia.org/wiki/INT_13H#INT_13h_AH=00h:_Reset_Disk_System)
 
 ### 成果
 
