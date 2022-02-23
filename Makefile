@@ -5,7 +5,7 @@
 
 QEMU = qemu-system-i386
 ASFLAGS = -al --32
-CFLAGS = -fno-pic -fno-stack-protector -Os -Wall -m32
+CFLAGS = -fno-pic -nostdlib -Os -Wall -m32
 LDFLAGS = -m elf_i386
 QFLAGS = -drive if=floppy,format=raw,file=$(IMAGE) -m 64
 FD = /dev/fd0
