@@ -4,9 +4,9 @@
 	$(AS) $(ASFLAGS)  $*.s -o $@ >$*.lst
 
 QEMU = qemu-system-i386
-ASFLAGS = -al
-CFLAGS = -fno-pic -Os -Wall
-LDFLAGS =
+ASFLAGS = -al --32
+CFLAGS = -fno-pic -Os -Wall -m32
+LDFLAGS = -m elf_i386
 QFLAGS = -drive if=floppy,format=raw,file=$(IMAGE) -m 64
 FD = /dev/fd0
 IMAGE = haribote.img
