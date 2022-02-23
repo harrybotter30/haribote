@@ -322,8 +322,8 @@ GDTR（および IDTR）は
 
 #### 参考
 
-- [Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3A: System Programming Guide, Part 1-- 3.4.5 Segment Descriptors/Figure 3-8. Segment Descriptor](https://software.intel.com/sites/default/files/managed/7c/f1/253668-sdm-vol-3a.pdf)
-- [Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3A: System Programming Guide, Part 1-- 5.8.2 Gate Descriptors/Figure 5-8. Call-Gate Descriptor](https://software.intel.com/sites/default/files/managed/7c/f1/253668-sdm-vol-3a.pdf)
+- [Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3A: System Programming Guide, Part 1-- 3.4.5 Segment Descriptors/Figure 3-8. Segment Descriptor](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.pdf)
+- [Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3A: System Programming Guide, Part 1-- 5.8.2 Gate Descriptors/Figure 5-8. Call-Gate Descriptor](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.pdf)
 - [80386 Programmer's Reference Manual -- Table of Contents](https://pdos.csail.mit.edu/6.828/2011/readings/i386/toc.htm)
 - [Intel® 64 and IA-32 Architectures Software Developer Manuals | Intel® Software](https://software.intel.com/en-us/articles/intel-sdm)
 

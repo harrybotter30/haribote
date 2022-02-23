@@ -139,7 +139,7 @@ set_palette:
 #### 参考
 
 - [VGA/SVGA Video Programming--Color Regsters](http://www.osdever.net/FreeVGA/vga/colorreg.htm)
-- [Tips　VGAその４の６　ビデオDACレジスター](http://softwaretechnique.jp/OS_Development/Tips/VGA/vga04-06.html)
+- [Tips　VGAその４の６　ビデオDACレジスター](https://web.archive.org/web/20151027010426/http://softwaretechnique.jp/OS_Development/Tips/VGA/vga04-06.html)
 - [VGA - os-wiki](http://oswiki.osask.jp/?VGA#o2d4bfd3)
 - [tools/bim2hrb - hrb-wiki](http://hrb.osask.jp/wiki/?tools/bim2hrb)
 

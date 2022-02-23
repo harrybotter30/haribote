@@ -22,7 +22,7 @@ Next: [helloos4](helloos4.md), Previous: [helloos2](helloos2.md), Up: [Chapter2]
 
 ##### 参考
 
-- [Linux のアセンブラー: GAS と NASM を比較する](https://www.ibm.com/developerworks/jp/linux/library/l-gas-nasm.html)
+- [Linux のアセンブラー: GAS と NASM を比較する](https://web.archive.org/web/20200811072707/https://www.ibm.com/developerworks/jp/linux/library/l-gas-nasm.html)
 
 #### gas で 16 ビット命令を生成させる
 
@@ -293,7 +293,7 @@ $
 
 ##### 参考
 
-- [Using as - Org](http://ftp.gnu.org/old-gnu/Manuals/gas/html_node/as_110.htm)
+- [Using as - Org](http://ftp.gnu.org/old-gnu/Manuals/gas/html_node/as_110.html)
 - [assembly - Is there something like org for nasm in gas? - Stack Overflow](https://stackoverflow.com/questions/31479054/is-there-something-like-org-for-nasm-in-gas)
 
 ### 成果
