@@ -293,7 +293,7 @@ $
 
 ##### 参考
 
-- [Using as - Org](http://ftp.gnu.org/old-gnu/Manuals/gas/html_node/as_110.htm)
+- [Using as - Org](http://ftp.gnu.org/old-gnu/Manuals/gas/html_node/as_110.html)
 - [assembly - Is there something like org for nasm in gas? - Stack Overflow](https://stackoverflow.com/questions/31479054/is-there-something-like-org-for-nasm-in-gas)
 
 ### 成果
