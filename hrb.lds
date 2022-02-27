@@ -33,5 +33,6 @@ SECTIONS
     } = 0x00000000
 
     /DISCARD/ : { *(.eh_frame) }
+    /DISCARD/ : { *(.note.gnu.property) }
 
 }

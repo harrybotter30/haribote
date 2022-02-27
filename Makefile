@@ -6,6 +6,7 @@
 QEMU = qemu-system-i386
 ASFLAGS = -al --32
 CFLAGS = -fno-pic -Os -Wall -m32
+CPPFLAGS += -U_FORTIFY_SOURCE
 LDFLAGS = -m elf_i386
 QFLAGS = -drive if=floppy,format=raw,file=$(IMAGE) -m 64
 FD = /dev/fd0
