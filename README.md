@@ -1,3 +1,4 @@
+[![Makefile CI](https://github.com/harrybotter30/haribote/actions/workflows/makefile.yml/badge.svg)](https://github.com/harrybotter30/haribote/actions/workflows/makefile.yml)
 # haribote
 
 川合秀実著「[30日でできる！　OS自作入門](https://book.mynavi.jp/ec/products/detail/id=22078)」について学習するリポジトリ。
