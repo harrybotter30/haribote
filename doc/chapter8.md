@@ -14,6 +14,10 @@ Next: [Chapter9](chapter9.md), Previous: [Chapter7](chapter7.md), Up: [Top](/REA
 
 マウスデータを構造体にまとめる。
 
+## [harib05c](harib05c.md)
+
+マウスデータパケットを復号する。
+
 ----
 
 Next: [Chapter9](chapter9.md), Previous: [Chapter7](chapter7.md), Up: [Top](/README.md)
