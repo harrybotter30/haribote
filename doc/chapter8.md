@@ -18,6 +18,10 @@ Next: [Chapter9](chapter9.md), Previous: [Chapter7](chapter7.md), Up: [Top](/REA
 
 マウスデータパケットを復号する。
 
+## [harib05d](harib05d.md)
+
+マウスカーソルを動かす。
+
 ----
 
 Next: [Chapter9](chapter9.md), Previous: [Chapter7](chapter7.md), Up: [Top](/README.md)
