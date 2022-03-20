@@ -1,4 +1,4 @@
-Next: [harib05e](harib05e.md), Previous: [harib05c](harib05c.md), Up: [Chapter8](chapter8.md)
+Next: [protected-mode](protected-mode.md), Previous: [harib05c](harib05c.md), Up: [Chapter8](chapter8.md)
 
 ----
 
@@ -28,4 +28,4 @@ Next: [harib05e](harib05e.md), Previous: [harib05c](harib05c.md), Up: [Chapter8]
 
 ----
 
-Next: [harib05e](harib05e.md), Previous: [harib05c](harib05c.md), Up: [Chapter8](chapter8.md)
+Next: [protected-mode](protected-mode.md), Previous: [harib05c](harib05c.md), Up: [Chapter8](chapter8.md)

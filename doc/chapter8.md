@@ -22,6 +22,10 @@ Next: [Chapter9](chapter9.md), Previous: [Chapter7](chapter7.md), Up: [Top](/REA
 
 マウスカーソルを動かす。
 
+## [protected-mode](protected-mode.md)
+
+32 ビットモードに切り替える。
+
 ----
 
 Next: [Chapter9](chapter9.md), Previous: [Chapter7](chapter7.md), Up: [Top](/README.md)
