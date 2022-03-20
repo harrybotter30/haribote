@@ -1,4 +1,4 @@
-Next: [harib06b](harib06b.md), Previous: [protected-mode](protected-mode.md), Up: [Chapter8](chapter8.md)
+Next: [harib06b](harib06b.md), Previous: [protected-mode](protected-mode.md), Up: [Chapter9](chapter9.md)
 
 ----
 
@@ -48,4 +48,4 @@ flowchart LR;
 
 ----
 
-Next: [harib06b](harib06b.md), Previous: [protected-mode](protected-mode.md), Up: [Chapter8](chapter8.md)
+Next: [harib06b](harib06b.md), Previous: [protected-mode](protected-mode.md), Up: [Chapter9](chapter9.md)
