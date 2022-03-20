@@ -15,7 +15,9 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Install i386 library
-      run: sudo apt-get install -y libc6-dev-i386
+      run: |
+        apt-get update
+        apt-get install -y libc6-dev-i386
     
     - name: Install dependencies
       run: make
