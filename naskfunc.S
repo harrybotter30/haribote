@@ -33,6 +33,10 @@
 	.type	load_gdtr, @function
 	.globl	load_idtr
 	.type	load_idtr, @function
+	.globl	load_cr0
+	.type	load_cr0, @function
+	.globl	store_cr0
+	.type	store_cr0, @function
 	.globl	asm_inthandler21
 	.type	asm_inthandler21, @function
 	.globl	asm_inthandler27
@@ -115,6 +119,15 @@ load_idtr:                      /* void load_idtr(int limit, int addr); */
 	movw	4(%esp), %ax    /* limit */
 	movw	%ax, 6(%esp)
 	lidt	6(%esp)
+	ret
+
+load_cr0:                       /* int load_cr0(void); */
+	movl	%cr0, %eax
+	ret
+
+store_cr0:                      /* void store_cr0(int cr0); */
+	movl	4(%esp), %eax   /* cr0 */
+	movl	%eax, %cr0
 	ret
 
 asm_inthandler21:
