@@ -43,6 +43,8 @@
 	.type	asm_inthandler27, @function
 	.globl	asm_inthandler2c
 	.type	asm_inthandler2c, @function
+	.globl	memtest_sub
+	.type	memtest_sub, @function
 
 /* 以下は実際の関数 */
 
@@ -177,3 +179,36 @@ asm_inthandler2c:
 	pop	%ds
 	pop	%es
 	iretl
+
+memtest_sub:                    /* unsigned int memtest_sub(unsigned int start, unsigned int end) */
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	movl	$0xaa55aa55, %esi /* pat0 = 0xaa55aa55; */
+	movl	$0x55aa55aa, %edi /* pat1 = 0x55aa55aa; */
+	movl	16(%esp), %eax  /* i = start; */
+mts_loop:
+	movl	%eax, %ebx
+	addl	$0xffc, %ebx    /* p = i + 0xffc; */
+	movl	(%ebx), %edx    /* old = *p; */
+	movl	%esi, (%ebx)	/* *p = pat0; */
+	xorl	$0xffffffff, (%ebx) /* *p ^= 0xffffffff; */
+	cmpl	(%ebx), %edi    /* if (*p != pat1) goto fin; */
+	jne	mts_fin
+	xorl	$0xffffffff, (%ebx) /* *p ^= 0xffffffff; */
+	cmpl	(%ebx), %esi    /* if (*p != pat0) goto fin; */
+	jne	mts_fin
+	movl	%edx, (%ebx)    /* *p = old; */
+	addl	$0x1000, %eax   /* i += 0x1000; */
+	cmpl	20(%esp), %eax  /* if (i <= end) goto mts_loop; */
+	jbe	mts_loop
+	popl	%ebx
+	popl	%esi
+	popl	%edi
+	ret
+mts_fin:
+	movl	%edx, (%ebx)    /* *p = old; */
+	popl	%ebx
+	popl	%esi
+	popl	%edi
+	ret
