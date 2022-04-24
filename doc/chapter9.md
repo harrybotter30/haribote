@@ -18,6 +18,10 @@ Next: [Chapter10](chapter10.md), Previous: [Chapter8](chapter8.md), Up: [Top](/R
 
 メモリ上限を正しく判定する。
 
+## [harib06d](harib06d.md)
+
+メモリ管理を行う。
+
 ----
 
 Next: [Chapter10](chapter10.md), Previous: [Chapter8](chapter8.md), Up: [Top](/README.md)
