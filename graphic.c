@@ -44,7 +44,7 @@ void set_palette(int start, int end, unsigned char *rgb)
 	return;
 }
 
-void boxfill8(char *vram, int xsize, char c, int x0, int y0, int x1, int y1)
+void boxfill8(unsigned char *vram, int xsize, char c, int x0, int y0, int x1, int y1)
 {
 	int x, y;
 	for (y = y0; y <= y1; y++) {
@@ -54,7 +54,7 @@ void boxfill8(char *vram, int xsize, char c, int x0, int y0, int x1, int y1)
 	return;
 }
 
-void init_screen8(char *vram, int x, int y)
+void init_screen8(unsigned char *vram, int x, int y)
 {
 	boxfill8(vram, x, COL8_008484,  0,     0,      x -  1, y - 29);
 	boxfill8(vram, x, COL8_C6C6C6,  0,     y - 28, x -  1, y - 28);
@@ -75,10 +75,11 @@ void init_screen8(char *vram, int x, int y)
 	return;
 }
 
-void putfont8(char *vram, int xsize, int x, int y, char c, char *font)
+void putfont8(unsigned char *vram, int xsize, int x, int y, char c, char *font)
 {
 	int i;
-	char *p, d /* data */;
+	unsigned char *p;
+	char d /* data */;
 	for (i = 0; i < 16; i++) {
 		p = vram + (y + i) * xsize + x;
 		d = font[i];
@@ -94,7 +95,7 @@ void putfont8(char *vram, int xsize, int x, int y, char c, char *font)
 	return;
 }
 
-void putfonts8_asc(char *vram, int xsize, int x, int y, char c, char *s)
+void putfonts8_asc(unsigned char *vram, int xsize, int x, int y, char c, char *s)
 {
 	extern char _binary_font_bin_start[];
 	for (; *s != 0x00; s++) {
@@ -104,7 +105,7 @@ void putfonts8_asc(char *vram, int xsize, int x, int y, char c, char *s)
 	return;
 }
 
-void init_mouse_cursor8(char *mouse, char bc)
+void init_mouse_cursor8(unsigned char *mouse, char bc)
 /* マウスカーソルを準備（16x16） */
 {
 	static char cursor[16][16] = {
@@ -143,7 +144,7 @@ void init_mouse_cursor8(char *mouse, char bc)
 	return;
 }
 
-void putblock8_8(char *vram, int vxsize, int pxsize,
+void putblock8_8(unsigned char *vram, int vxsize, int pxsize,
 	int pysize, int px0, int py0, char *buf, int bxsize)
 {
 	int x, y;

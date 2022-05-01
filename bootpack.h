@@ -5,7 +5,7 @@ struct BOOTINFO { /* 0x0ff0-0x0fff */
 	char vmode; /* ビデオモード  何ビットカラーか */
 	char reserve;
 	short scrnx, scrny; /* 画面解像度 */
-	char *vram;
+	unsigned char *vram;
 };
 #define ADR_BOOTINFO	0x00000ff0
 
@@ -40,12 +40,12 @@ int fifo8_status(struct FIFO8 *fifo);
 /* graphic.c */
 void init_palette(void);
 void set_palette(int start, int end, unsigned char *rgb);
-void boxfill8(char *vram, int xsize, char c, int x0, int y0, int x1, int y1);
-void init_screen8(char *vram, int x, int y);
-void putfont8(char *vram, int xsize, int x, int y, char c, char *font);
-void putfonts8_asc(char *vram, int xsize, int x, int y, char c, char *s);
-void init_mouse_cursor8(char *mouse, char bc);
-void putblock8_8(char *vram, int vxsize, int pxsize,
+void boxfill8(unsigned char *vram, int xsize, char c, int x0, int y0, int x1, int y1);
+void init_screen8(unsigned char *vram, int x, int y);
+void putfont8(unsigned char *vram, int xsize, int x, int y, char c, char *font);
+void putfonts8_asc(unsigned char *vram, int xsize, int x, int y, char c, char *s);
+void init_mouse_cursor8(unsigned char *mouse, char bc);
+void putblock8_8(unsigned char *vram, int vxsize, int pxsize,
 	int pysize, int px0, int py0, char *buf, int bxsize);
 #define COL8_000000		0
 #define COL8_FF0000		1
@@ -139,3 +139,23 @@ unsigned int memman_alloc(struct MEMMAN *man, unsigned int size);
 int memman_free(struct MEMMAN *man, unsigned int addr, unsigned int size);
 unsigned int memman_alloc_4k(struct MEMMAN *man, unsigned int size);
 int memman_free_4k(struct MEMMAN *man, unsigned int addr, unsigned int size);
+
+/* sheet.c */
+#define MAX_SHEETS		256
+struct SHEET {
+	unsigned char *buf;
+	int bxsize, bysize, vx0, vy0, col_inv, height, flags;
+};
+struct SHTCTL {
+	unsigned char *vram;
+	int xsize, ysize, top;
+	struct SHEET *sheets[MAX_SHEETS];
+	struct SHEET sheets0[MAX_SHEETS];
+};
+struct SHTCTL *shtctl_init(struct MEMMAN *memman, unsigned char *vram, int xsize, int ysize);
+struct SHEET *sheet_alloc(struct SHTCTL *ctl);
+void sheet_setbuf(struct SHEET *sht, unsigned char *buf, int xsize, int ysize, int col_inv);
+void sheet_updown(struct SHTCTL *ctl, struct SHEET *sht, int height);
+void sheet_refresh(struct SHTCTL *ctl);
+void sheet_slide(struct SHTCTL *ctl, struct SHEET *sht, int vx0, int vy0);
+void sheet_free(struct SHTCTL *ctl, struct SHEET *sht);
